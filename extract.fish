@@ -34,10 +34,10 @@ function init --on-event init_extract
                     case *.pax
                         pax -r < $file
                     case '*'
-                        echo "💥 Extension not recognized, unable to extract '$file'"
+                        echo "💥 Extension not recognized, aborting."
                 end
             else
-                echo "💥 Cannot extract '$file', sorry."
+                echo "💥 Cannot extract '$file', aborting."
             end
         end
 
