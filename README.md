@@ -9,13 +9,23 @@ extract development for [Wahoo][Wahoo] / [fish](fishshell.com).
 ## Install
 > _Note_: You need to have the related tools installed prior to loading Wahoo.
 
-On OSX you can use homebrew to install these:
+> Unzip, bzip2, (bsd)tar and pax come with OSX.
+> More recent versions of these can be installed using `homebrew`.
+
+Unrar and the (recommendable) XZ can easily be installed on OSX:
 
 ```fish
-brew install gnu-tar unrar xz
+brew install unrar xz
 ```
 
 > GNU tar is kinda rare. Extraction will fail gracefully if you try to extract an according archive.
+If required on OSX you can install it using `homebrew`, too:
+
+```fish
+brew install gnu-tar
+```
+
+Finally, add the package to Wahoo:
 
 ```fish
 wa g extract
