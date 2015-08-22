@@ -33,6 +33,10 @@ function init --on-event init_extract
                         unzip -uo $file -d (basename $file .zip)
                     case *.pax
                         pax -r < $file
+                    case *.Z
+                        uncompress $file
+                    case "*.7z"
+                        7za x $file
                     case '*'
                         echo "💥 Extension not recognized, aborting."
                 end
