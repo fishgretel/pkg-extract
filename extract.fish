@@ -6,9 +6,9 @@ function init --on-event init_extract
             if test -f $file
                 echo -s "💥 Extracting '" (set_color --bold blue) $file (set_color normal) "' ..."
                 switch $file
-                    case *.tar
+                    case "*.tar"
                         tar -xf $file
-                    case *.tar.xz *.txz
+                    case "*.tar.xz" "*.txz"
                         set os (uname)
                         if [ $os = "Darwin" ]
                             type gtar >/dev/null
@@ -17,27 +17,27 @@ function init --on-event init_extract
                         else
                             tar -Jxf $file
                         end
-                    case *.tar.bz2 *.tbz *.tbz2
+                    case "*.tar.bz2" "*.tbz" "*.tbz2"
                         tar -jxf $file
-                    case *.tar.gz *.tgz
+                    case "*.tar.gz" "*.tgz"
                         tar -zxf $file
-                    case *.xz
+                    case "*.xz"
                         unxz $file
-                    case *.bz2
+                    case "*.bz2"
                         bunzip2 $file
-                    case *.gz
+                    case "*.gz"
                         gunzip $file
-                    case *.rar
+                    case "*.rar"
                         unrar x $file
-                    case *.zip
+                    case "*.zip"
                         unzip -uo $file -d (basename $file .zip)
-                    case *.pax
+                    case "*.pax"
                         pax -r < $file
-                    case *.Z
+                    case "*.Z"
                         uncompress $file
                     case "*.7z"
                         7za x $file
-                    case '*'
+                    case "*"
                         echo "💥 Extension not recognized, aborting."
                 end
             else
